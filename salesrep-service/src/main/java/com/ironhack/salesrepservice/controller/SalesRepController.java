@@ -26,6 +26,12 @@ public class SalesRepController {
         return salesRepRepository.findAll();
     }
 
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public SalesRep getById(@PathVariable(name = "id") Long id) {
+        return salesRepService.getSalesRepById(id);
+    }
+
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public SalesRep createSalesRep(@RequestBody SalesRepDTO salesRepDTO) {
