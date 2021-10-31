@@ -17,14 +17,4 @@ Username is `sa` and no password. This I think is the standard for H2 databases.
     spring.datasource.password=
     spring.jpa.show-sql=true
 
-
-## salesrep-service
-port: 8100
-
-GET: /salesrep
-
-POST: /salesrep
-
-- "name": String
-  
   
