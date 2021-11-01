@@ -1,16 +1,17 @@
 package com.ironhack.validationservice.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class EmailDTO {
+@Getter
+public class AccountDTO {
 
-    private String email;
+    private String industry;
+    private int employeeCount;
+    private String city;
+    private String country;
+
 }
