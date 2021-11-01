@@ -5,7 +5,9 @@ import com.ironhack.salesrepservice.dao.SalesRep;
 import com.ironhack.salesrepservice.dto.SalesRepDTO;
 import com.ironhack.salesrepservice.repository.SalesRepRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
@@ -25,7 +27,9 @@ public class SalesRepService {
         Optional<SalesRep> optionalSalesRep = salesRepRepository.findById(id);
         if (optionalSalesRep.isPresent()) {
             return optionalSalesRep.get();
-        } else { return null;}
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            }
 
     }
 
