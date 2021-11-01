@@ -7,6 +7,8 @@ import com.ironhack.salesrepservice.repository.SalesRepRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class SalesRepService {
 
@@ -17,6 +19,14 @@ public class SalesRepService {
 
         SalesRep salesRep = new SalesRep(salesRepDTO.getName());
         return salesRepRepository.save(salesRep);
+    }
+
+    public SalesRep getSalesRepById(Long id) {
+        Optional<SalesRep> optionalSalesRep = salesRepRepository.findById(id);
+        if (optionalSalesRep.isPresent()) {
+            return optionalSalesRep.get();
+        } else { return null;}
+
     }
 
 }

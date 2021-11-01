@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/salesrep")
+@RequestMapping("/api/salesrep")
 public class SalesRepController {
 
     @Autowired
@@ -24,6 +24,12 @@ public class SalesRepController {
     @ResponseStatus(HttpStatus.OK)
     public List<SalesRep> getAll() {
         return salesRepRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public SalesRep getById(@PathVariable(name = "id") Long id) {
+        return salesRepService.getSalesRepById(id);
     }
 
     @PostMapping("")
