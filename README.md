@@ -26,5 +26,32 @@ GET: /salesrep
 POST: /salesrep
 
 - "name": String
+
+## contact-service
+port: 8003
+
+GET:
+- /api/contact  
+- /api/contact/{id}
+
+POST: /api/contact
+
+- "contactName": String
+- "phoneNumber": *Phone number that must be 6-15 digits and that can include the country code*
+- "email": String *(must have the correct format of an e-mail address)*
+- "companyName": String
+
+## opportunity-service
+port: 8004
+
+GET:
+- /api/opportunity
+- /api/opportunity/{id}
+
+POST: /api/opportunity
+
+- "product": String *(can only be "box", "hybrid" or "flatbed" - case-insensitive)*
+- "quantity": int
+- "decisionMaker": *id of an existing contact*
   
   
