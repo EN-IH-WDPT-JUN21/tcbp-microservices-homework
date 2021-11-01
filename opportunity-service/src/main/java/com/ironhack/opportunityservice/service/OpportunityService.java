@@ -1,10 +1,12 @@
 package com.ironhack.opportunityservice.service;
 
 import com.ironhack.opportunityservice.dao.Opportunity;
+import com.ironhack.opportunityservice.dto.ContactDTO;
 import com.ironhack.opportunityservice.dto.OpportunityDTO;
 import com.ironhack.opportunityservice.enums.Product;
 import com.ironhack.opportunityservice.enums.Status;
 import com.ironhack.opportunityservice.interfaces.IOpportunityService;
+import com.ironhack.opportunityservice.proxy.ContactProxy;
 import com.ironhack.opportunityservice.repository.OpportunityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,9 @@ import java.util.Optional;
 public class OpportunityService implements IOpportunityService {
     @Autowired
     OpportunityRepository opportunityRepository;
+
+    @Autowired
+    ContactProxy contactProxy;
 
     public Opportunity store(OpportunityDTO opportunityDTO) {
         Product product;
@@ -34,8 +39,19 @@ public class OpportunityService implements IOpportunityService {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Please use a valid product.");
         }
 
-        Opportunity newOpportunity = new Opportunity(product, opportunityDTO.getQuantity(), opportunityDTO.getDecisionMaker(), Status.OPEN);
-        return opportunityRepository.save(newOpportunity);
+        Optional<ContactDTO> contactDTO;
+        try {
+            contactDTO = contactProxy.findById(opportunityDTO.getDecisionMaker().toString());
+        } catch (Exception ex) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Contact does not exist.");
+        }
+
+        if(contactDTO.isPresent()) {
+            Opportunity newOpportunity = new Opportunity(product, opportunityDTO.getQuantity(), opportunityDTO.getDecisionMaker(), Status.OPEN);
+            return opportunityRepository.save(newOpportunity);
+        } else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Contact does not exist.");
+        }
     }
 
     public Opportunity updateStatusClosedLost(String id) {

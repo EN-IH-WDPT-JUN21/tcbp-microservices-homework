@@ -23,6 +23,5 @@ public class OpportunityDTO {
     @NotNull
     private Long decisionMaker;
 
-    @NotBlank(message = "Status cannot be empty or null.")
     private String status;
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/contact")
@@ -29,8 +30,8 @@ public class ContactController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Contact findById(@PathVariable String id) {
-        return contactRepository.findById(Long.valueOf(id)).get();
+    public Optional<Contact> findById(@PathVariable String id) {
+        return contactRepository.findById(Long.valueOf(id));
     }
 
     @PostMapping
