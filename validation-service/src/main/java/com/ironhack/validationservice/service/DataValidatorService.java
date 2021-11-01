@@ -1,6 +1,7 @@
 package com.ironhack.validationservice.service;
 
 import com.google.gson.Gson;
+import com.ironhack.validationservice.dto.AccountDTO;
 import com.ironhack.validationservice.dto.LeadDTO;
 import com.ironhack.validationservice.proxy.AccountServiceProxy;
 import com.ironhack.validationservice.proxy.LeadServiceProxy;
@@ -182,6 +183,14 @@ public class DataValidatorService {
 
         return allLeadsString.toLowerCase().contains(leadJSONString.toLowerCase());
 
+    }
+
+    public boolean isAccountDuplicate(AccountDTO accountDTO) {
+        String allAccountsString = accountServiceProxy.getAllAccounts();
+        Gson gson = new Gson();
+        String accountJSONString = gson.toJson(accountDTO);
+
+        return allAccountsString.toLowerCase().contains(accountJSONString.toLowerCase());
     }
 }
 

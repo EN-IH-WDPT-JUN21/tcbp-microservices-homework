@@ -1,6 +1,7 @@
 package com.ironhack.validationservice.controller;
 
 
+import com.ironhack.validationservice.dto.AccountDTO;
 import com.ironhack.validationservice.dto.EmailDTO;
 import com.ironhack.validationservice.dto.LeadDTO;
 import com.ironhack.validationservice.dto.PhoneDTO;
@@ -64,6 +65,12 @@ public class DataValidatorController {
     @ResponseStatus(HttpStatus.OK)
     public boolean leadDuplicate(@RequestBody LeadDTO leadDTO) {
         return dataValidatorService.isLeadDuplicate(leadDTO);
+    }
+
+    @GetMapping("/duplicate/account")
+    @ResponseStatus(HttpStatus.OK)
+    public boolean accountDuplicate(@RequestBody AccountDTO accountDTO) {
+        return dataValidatorService.isAccountDuplicate(accountDTO);
     }
 
 

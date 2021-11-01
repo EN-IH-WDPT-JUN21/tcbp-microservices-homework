@@ -78,6 +78,23 @@ returns `boolean`
 
 ---------------
 
+### GET: /api/validation/duplicate/account
+
+takes:
+
+    {
+        "industry": String,
+        "employeeCount": int,
+        "city": String,
+        "country": String
+    }
+
+returns `boolean`
+- is duplicate: true;
+- not duplicate: false
+
+---------------
+
 
 
 
