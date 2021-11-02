@@ -75,7 +75,6 @@ public class LeadObjectService implements ILeadObjectService {
         if (accountServiceProxy.checkAccountExists(convertLeadDTO.getAccountId())) {
             accountDTO = accountServiceProxy.findById(convertLeadDTO.getAccountId());
         } else {
-
             accountDTO = new AccountDTO(
                     convertLeadDTO.getAccountId(),
                     convertLeadDTO.getIndustry(),

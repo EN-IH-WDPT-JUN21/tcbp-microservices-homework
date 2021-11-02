@@ -33,11 +33,7 @@ public class AccountService implements IAccountService {
     @Override
     public boolean checkAccountExists(Long id){
         Optional<Account> account = accountRepository.findById(id);
-        if(account.isPresent()) {
-            return true;
-        } else {
-            return false;
-        }
+        return account.isPresent();
     }
 
     @Override

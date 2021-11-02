@@ -1,4 +1,4 @@
-package com.chocolateboxproject.accountservice;
+package com.chocolateboxproject.accountservice.controller;
 
 import com.chocolateboxproject.accountservice.dao.Account;
 import com.chocolateboxproject.accountservice.dto.AccountDTO;
