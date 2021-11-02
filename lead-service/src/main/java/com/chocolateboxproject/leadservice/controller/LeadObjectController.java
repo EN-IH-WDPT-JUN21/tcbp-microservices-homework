@@ -57,7 +57,7 @@ public class LeadObjectController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.CREATED)
     public LeadObject createNewLeadObject(@RequestBody @Valid LeadObjectDTO leadObjectDTO){
         return leadObjectService.createNewLeadObject(leadObjectDTO);
     }

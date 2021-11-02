@@ -3,25 +3,19 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Annotation profile for Unknown" enabled="true">
-        <sourceOutputDir name="../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="wrapper (2)" />
-        <module name="wrapper (1)" />
-        <module name="wrapper (3)" />
-      </profile>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="lead-service" />
         <module name="contact-service" />
+        <module name="account-service" />
         <module name="salesrep-service" />
         <module name="opportunity-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="account-service" target="17" />
       <module name="contact-service" target="17" />
       <module name="lead-service" target="11" />
       <module name="opportunity-service" target="17" />
@@ -33,6 +27,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="account-service" options="-parameters" />
       <module name="contact-service" options="-parameters" />
       <module name="lead-service" options="-parameters" />
       <module name="opportunity-service" options="-parameters" />

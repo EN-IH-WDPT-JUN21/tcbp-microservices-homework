@@ -13,6 +13,9 @@ public interface AccountServiceProxy {
     @GetMapping("/api/account/{id}")
     AccountDTO findById(@PathVariable long id);
 
+    @GetMapping("/api/account/{id}/exists")
+    boolean checkAccountExists(@PathVariable long id);
+
     @PostMapping("/api/account")
     AccountDTO createAccount(@RequestBody AccountDTO accountDTO);
 }

@@ -55,33 +55,36 @@ public class LeadObjectService implements ILeadObjectService {
 
     @Override
     public LeadObject createNewLeadObject(LeadObjectDTO leadObjectDTO) {
-        Optional<LeadObject> leadObject = leadObjectRepository.findById(leadObjectDTO.getId());
-        if(leadObject.isPresent()) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Lead already exists with ID: " + leadObjectDTO.getId());
+        LeadObject leadObject = new LeadObject();
         if(leadObjectDTO.getContactName().trim().equals("")) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No Contact Name Present");
-        leadObject.get().setContactName(leadObjectDTO.getContactName());
+        leadObject.setContactName(leadObjectDTO.getContactName());
         if(Objects.equals(leadObjectDTO.getPhoneNumber().trim(), "")) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No Phone Number Present");
-        leadObject.get().setPhoneNumber(leadObjectDTO.getPhoneNumber());
+        leadObject.setPhoneNumber(leadObjectDTO.getPhoneNumber());
         if(Objects.equals(leadObjectDTO.getEmail().trim(), "")) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No Email Present");
-        leadObject.get().setEmail(leadObjectDTO.getEmail());
+        leadObject.setEmail(leadObjectDTO.getEmail());
         if(Objects.equals(leadObjectDTO.getCompanyName().trim(), "")) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No Company Name Present");
-        leadObject.get().setCompanyName(leadObjectDTO.getCompanyName());
-        leadObject.get().setSales(leadObjectDTO.getSales());
-        return leadObjectRepository.save(leadObject.get());
+        leadObject.setCompanyName(leadObjectDTO.getCompanyName());
+        leadObject.setSales(salesRepServiceProxy.findById(leadObjectDTO.getSales()).getId()); // This will validate if sales rep exists
+        return leadObjectRepository.save(leadObject);
     }
-
-    List<Long> list = new ArrayList<>();
 
     @Override
     public AccountDTO convertLead(long id, ConvertLeadDTO convertLeadDTO) {
         //Wrapper method for converting Lead and setting up the Account object
-        AccountDTO accountDTO = new AccountDTO(
-                convertLeadDTO.getAccountId(),
-                convertLeadDTO.getIndustry(),
-                convertLeadDTO.getEmployeeCount(),
-                convertLeadDTO.getCity(),
-                convertLeadDTO.getCountry()
-        );
-        accountDTO = accountServiceProxy.createAccount(accountDTO);
+        AccountDTO accountDTO = new AccountDTO();
+        if (accountServiceProxy.checkAccountExists(convertLeadDTO.getAccountId())) {
+            accountDTO = accountServiceProxy.findById(convertLeadDTO.getAccountId());
+        } else {
+
+            accountDTO = new AccountDTO(
+                    convertLeadDTO.getAccountId(),
+                    convertLeadDTO.getIndustry(),
+                    convertLeadDTO.getEmployeeCount(),
+                    convertLeadDTO.getCity(),
+                    convertLeadDTO.getCountry());
+            accountDTO = accountServiceProxy.createAccount(accountDTO);
+        }
+
         LeadObject leadObject = findById(id);
         ContactDTO contactDTO = new ContactDTO(
                 leadObject.getContactName(),
