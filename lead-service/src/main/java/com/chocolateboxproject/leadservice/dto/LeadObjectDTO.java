@@ -28,7 +28,7 @@ public class LeadObjectDTO {
     @NotBlank(message = "Company name cannot be empty or null.")
     private String companyName;
 
-    private Long sales;
+    private Long salesRep;
 
 
 }

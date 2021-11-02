@@ -12,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -64,7 +63,7 @@ public class LeadObjectService implements ILeadObjectService {
         leadObject.setEmail(leadObjectDTO.getEmail());
         if(Objects.equals(leadObjectDTO.getCompanyName().trim(), "")) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No Company Name Present");
         leadObject.setCompanyName(leadObjectDTO.getCompanyName());
-        leadObject.setSales(salesRepServiceProxy.findById(leadObjectDTO.getSales()).getId()); // This will validate if sales rep exists
+        leadObject.setSalesRep(salesRepServiceProxy.findById(leadObjectDTO.getSalesRep()).getId()); // This will validate if sales rep exists
         return leadObjectRepository.save(leadObject);
     }
 
@@ -99,7 +98,7 @@ public class LeadObjectService implements ILeadObjectService {
                 convertLeadDTO.getQuantity(),
                 contactDTO.getId(),
                 accountDTO.getId(),
-                leadObject.getSales()
+                leadObject.getSalesRep()
         );
         opportunityDTO = opportunityServiceProxy.createNewOpportunity(opportunityDTO);
         return accountServiceProxy.findById(accountDTO.getId());

@@ -25,14 +25,14 @@ public class LeadObject {
     private String email;
     private String companyName;
 
-    private long sales;
+    private long salesRep;
 
-    public LeadObject(String contactName, String phoneNumber, String email, String companyName, long sales) {
+    public LeadObject(String contactName, String phoneNumber, String email, String companyName, long salesRep) {
         setContactName(contactName);
         setPhoneNumber(phoneNumber);
         setEmail(email);
         setCompanyName(companyName);
-        setSales(sales);
+        setSalesRep(salesRep);
     }
 
     // Checks that leads are not duplicated on each attribute except ID. As the ID is auto-incremented, it is assumed

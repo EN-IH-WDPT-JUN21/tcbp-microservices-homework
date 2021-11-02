@@ -9,14 +9,18 @@
         <outputRelativeToContentRoot value="true" />
         <module name="lead-service" />
         <module name="contact-service" />
+        <module name="h2Database" />
         <module name="account-service" />
         <module name="salesrep-service" />
         <module name="opportunity-service" />
+        <module name="discovery-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="account-service" target="17" />
       <module name="contact-service" target="17" />
+      <module name="discovery-service" target="17" />
+      <module name="h2Database" target="17" />
       <module name="lead-service" target="11" />
       <module name="opportunity-service" target="17" />
       <module name="salesrep-service" target="17" />
@@ -29,6 +33,8 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="account-service" options="-parameters" />
       <module name="contact-service" options="-parameters" />
+      <module name="discovery-service" options="-parameters" />
+      <module name="h2Database" options="-parameters" />
       <module name="lead-service" options="-parameters" />
       <module name="opportunity-service" options="-parameters" />
       <module name="salesrep-service" options="-parameters" />
