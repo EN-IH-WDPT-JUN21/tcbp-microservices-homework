@@ -3,14 +3,15 @@
 
 ## application.properties suggestion:
 
+<strong> ** IMPORTANT - H2 Database Application needs to be run to Allow Databases to work accross microservices ** </strong>
+
 The database will be shared by all microservices, each one will be responsible for one table. The name of the database is `CRMDatabase`.
 Username is `sa` and no password. This I think is the standard for H2 databases.
 
 
     spring.application.name=<name of the service here>
     server.port=<port number>
-    spring.jpa.defer-datasource-initialization=true
-    spring.datasource.url=jdbc:h2:mem:CRMDatabase
+    spring.datasource.url=jdbc:h2:tcp://localhost:9090/mem:CRMDatabase
     spring.datasource.driver-class-name=org.h2.Driver
     spring.h2.console.enabled=true
     spring.datasource.username=sa

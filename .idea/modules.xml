@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/account-service/account-service.iml" filepath="$PROJECT_DIR$/account-service/account-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/contact-service/contact-service.iml" filepath="$PROJECT_DIR$/contact-service/contact-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/discovery-service/discovery-service.iml" filepath="$PROJECT_DIR$/discovery-service/discovery-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/h2Database/h2Database.iml" filepath="$PROJECT_DIR$/h2Database/h2Database.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lead-service/lead-service.iml" filepath="$PROJECT_DIR$/lead-service/lead-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/opportunity-service/opportunity-service.iml" filepath="$PROJECT_DIR$/opportunity-service/opportunity-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/salesrep-service/salesrep-service.iml" filepath="$PROJECT_DIR$/salesrep-service/salesrep-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/tcbp-microservices-homework.iml" filepath="$PROJECT_DIR$/.idea/tcbp-microservices-homework.iml" />
