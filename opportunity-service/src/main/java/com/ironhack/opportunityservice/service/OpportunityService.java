@@ -48,7 +48,13 @@ public class OpportunityService implements IOpportunityService {
         }
 
         if(contactDTO.isPresent()) {
-            Opportunity newOpportunity = new Opportunity(product, opportunityDTO.getQuantity(), opportunityDTO.getDecisionMaker(), Status.OPEN);
+            Opportunity newOpportunity = new Opportunity(
+                    product,
+                    opportunityDTO.getQuantity(),
+                    opportunityDTO.getDecisionMaker(),
+                    Status.OPEN,
+                    opportunityDTO.getAccount(),
+                    opportunityDTO.getSalesId());
             return opportunityRepository.save(newOpportunity);
         } else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Contact does not exist.");

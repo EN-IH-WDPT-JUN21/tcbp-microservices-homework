@@ -14,7 +14,7 @@ public class ContactService implements IContactService {
     ContactRepository contactRepository;
 
     public Contact store(ContactDTO contactDTO) {
-        Contact newContact = new Contact(contactDTO.getContactName(), contactDTO.getPhoneNumber(), contactDTO.getEmail(), contactDTO.getCompanyName());
+        Contact newContact = new Contact(contactDTO.getContactName(), contactDTO.getPhoneNumber(), contactDTO.getEmail(), contactDTO.getCompanyName(), contactDTO.getAccount());
         return contactRepository.save(newContact);
     }
 }

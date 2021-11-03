@@ -13,6 +13,7 @@ import javax.validation.constraints.Pattern;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ContactDTO {
+
     @NotBlank(message = "Name cannot be empty or null.")
     private String contactName;
 
@@ -24,4 +25,6 @@ public class ContactDTO {
 
     @NotBlank(message = "Company name cannot be empty or null.")
     private String companyName;
+
+    private Long account;
 }

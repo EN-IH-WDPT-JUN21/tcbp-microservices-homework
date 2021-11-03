@@ -10,16 +10,17 @@ import java.util.List;
 
 @Repository
 public interface OpportunityRepository extends JpaRepository<Opportunity, Long> {
-    @Query(value="SELECT AVG(cast(opps as DOUBLE)) FROM (SELECT ACCOUNT_ID, COUNT(*) AS opps FROM OPPORTUNITY GROUP BY ACCOUNT_ID)", nativeQuery = true)
+
+    @Query(value="SELECT AVG(cast(opps as DOUBLE)) FROM (SELECT ACCOUNT, COUNT(*) AS opps FROM OPPORTUNITY GROUP BY ACCOUNT)", nativeQuery = true)
     Double getMeanOpportunityCountPerAccount();
 
-    @Query(value="SELECT MAX(cast(opps as DOUBLE)) FROM (SELECT ACCOUNT_ID, COUNT(*) AS opps FROM OPPORTUNITY GROUP BY ACCOUNT_ID)", nativeQuery = true)
+    @Query(value="SELECT MAX(cast(opps as DOUBLE)) FROM (SELECT ACCOUNT, COUNT(*) AS opps FROM OPPORTUNITY GROUP BY ACCOUNT)", nativeQuery = true)
     Integer getMaxOpportunityCountPerAccount();
 
-    @Query(value="SELECT MIN(cast(opps as DOUBLE)) FROM (SELECT ACCOUNT_ID, COUNT(*) AS opps FROM OPPORTUNITY GROUP BY ACCOUNT_ID)", nativeQuery = true)
+    @Query(value="SELECT MIN(cast(opps as DOUBLE)) FROM (SELECT ACCOUNT, COUNT(*) AS opps FROM OPPORTUNITY GROUP BY ACCOUNT)", nativeQuery = true)
     Integer getMinOpportunityCountPerAccount();
 
-    @Query(value="SELECT opps FROM (SELECT ACCOUNT_ID, COUNT(*) AS opps FROM OPPORTUNITY GROUP BY ACCOUNT_ID)", nativeQuery = true)
+    @Query(value="SELECT opps FROM (SELECT ACCOUNT, COUNT(*) AS opps FROM OPPORTUNITY GROUP BY ACCOUNT)", nativeQuery = true)
     List<Integer> getListOpportunityCountPerAccount();
 
     @Query(value = "SELECT AVG(cast(quantity AS DOUBLE)) as quantityCount FROM OPPORTUNITY", nativeQuery = true)

@@ -17,4 +17,5 @@ public class ContactDTO {
     private String phoneNumber;
     private String email;
     private String companyName;
+    private Long account;
 }

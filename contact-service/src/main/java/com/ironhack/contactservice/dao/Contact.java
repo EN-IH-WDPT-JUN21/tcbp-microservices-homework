@@ -22,11 +22,13 @@ public class Contact {
     private String phoneNumber;
     private String email;
     private String companyName;
+    private Long account;
 
-    public Contact(String contactName, String phoneNumber, String email, String companyName) {
+    public Contact(String contactName, String phoneNumber, String email, String companyName, Long account) {
         this.contactName = contactName;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.companyName = companyName;
+        this.account = account;
     }
 }
