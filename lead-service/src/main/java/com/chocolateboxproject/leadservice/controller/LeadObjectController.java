@@ -50,7 +50,7 @@ public class LeadObjectController {
         return leadObjectService.findAll().size();
     }
 
-    @GetMapping("/count/{salesrep}")
+    @GetMapping("/report/salesrep/{salesrep}")
     @ResponseStatus(HttpStatus.OK)
     public long getCountBySalesRepName(@PathVariable(name="salesrep") String name){
         return leadObjectService.countLeadObjectsBySalesRep(name);

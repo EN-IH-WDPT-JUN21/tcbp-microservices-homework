@@ -56,4 +56,54 @@ public class AccountService implements IAccountService {
         return accountRepository.save(account);
     }
 
+    @Override
+    public Double getMeanEmployeeCount() {
+        return accountRepository.getMeanEmployeeCount();
+    }
+
+    @Override
+    public Integer getMaxEmployeeCount() {
+        return accountRepository.getMaxEmployeeCount();
+    }
+
+    @Override
+    public Integer getMinEmployeeCount() {
+        return accountRepository.getMinEmployeeCount();
+    }
+
+    @Override
+    public List<Integer> getEmployeeCountList() {
+        return accountRepository.getEmployeeCountList();
+    }
+
+    @Override
+    public long countOpportunitiesByCountry(String country) {
+        return accountRepository.countOpportunitiesByCountry(country);
+    }
+
+    @Override
+    public long countOpportunitiesByCountryStatus(String country, String status) {
+        return accountRepository.countOpportunitiesByCountryStatus(country, status);
+    }
+
+    @Override
+    public long countOpportunitiesByCity(String city) {
+        return accountRepository.countOpportunitiesByCity(city);
+    }
+
+    @Override
+    public long countOpportunitiesByCityStatus(String city, String status) {
+        return accountRepository.countOpportunitiesByCityStatus(city, status);
+    }
+
+    @Override
+    public long countOpportunitiesByIndustry(String industry) {
+        return accountRepository.countOpportunitiesByIndustry(industry);
+    }
+
+    @Override
+    public long countOpportunitiesByIndustryStatus(String country, String status) {
+        return accountRepository.countOpportunitiesByIndustryStatus(country, status);
+    }
+
 }

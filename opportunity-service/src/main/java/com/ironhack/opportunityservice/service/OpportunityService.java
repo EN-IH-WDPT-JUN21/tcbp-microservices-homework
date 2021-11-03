@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -73,4 +74,66 @@ public class OpportunityService implements IOpportunityService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Opportunity with this ID not found.");
         }
     }
+
+    @Override
+    public Double getMeanOpportunityCountPerAccount() {
+        return opportunityRepository.getMeanOpportunityCountPerAccount();
+    }
+
+    @Override
+    public Integer getMaxOpportunityCountPerAccount() {
+        return opportunityRepository.getMaxOpportunityCountPerAccount();
+    }
+
+    @Override
+    public Integer getMinOpportunityCountPerAccount() {
+        return opportunityRepository.getMinOpportunityCountPerAccount();
+    }
+
+    @Override
+    public List<Integer> getListOpportunityCountPerAccount() {
+        return opportunityRepository.getListOpportunityCountPerAccount();
+    }
+
+    @Override
+    public Double getMeanProductQuantity() {
+        return opportunityRepository.getMeanProductQuantity();
+    }
+
+    @Override
+    public Integer getMaxProductQuantity() {
+        return opportunityRepository.getMaxProductQuantity();
+    }
+
+    @Override
+    public Integer getMinProductQuantity() {
+        return opportunityRepository.getMinProductQuantity();
+    }
+
+    @Override
+    public List<Integer> getProductQuantityList() {
+        return opportunityRepository.getProductQuantityList();
+    }
+
+    @Override
+    public long countOpportunitiesBySalesRep(String name) {
+        return opportunityRepository.countOpportunitiesBySalesRep(name);
+    }
+
+    @Override
+    public long countOpportunitiesBySalesRepAndStatus(String name, String status) {
+        return opportunityRepository.countOpportunitiesBySalesRepAndStatus(name, status);
+    }
+
+    @Override
+    public long countOpportunitiesByProduct(String product) {
+        return opportunityRepository.countOpportunitiesByProduct(product);
+    }
+
+    @Override
+    public long countOpportunitiesByProductStatus(String product, String status) {
+        return opportunityRepository.countOpportunitiesByProductStatus(product, status);
+    }
+
+
 }
