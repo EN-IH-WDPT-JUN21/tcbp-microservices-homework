@@ -1,0 +1,1 @@
+INSERT INTO ACCOUNT (ID ,CITY ,COUNTRY ,EMPLOYEE_COUNT ,INDUSTRY ) VALUES (1, 'London', 'UK', 10, 'PRODUCE'), (2, 'Berlin', 'Germany', 50, 'OTHER'), (3, 'Paris', 'France', 15, 'MEDICAL'), (4, 'Madrid', 'Spain', 1230, 'ECOMMERCE');

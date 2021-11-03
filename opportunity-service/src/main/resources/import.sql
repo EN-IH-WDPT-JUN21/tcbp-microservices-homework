@@ -1,0 +1,1 @@
+INSERT INTO opportunity (ID ,ACCOUNT ,DECISION_MAKER ,PRODUCT ,QUANTITY ,SALES_ID ,STATUS ) VALUES (1, 1, 1, 'BOX', 10, 1 , 'OPEN'), (2, 2, 2, 'HYBRID', 20, 2 , 'OPEN'), (3, 3, 3, 'FLATBED', 30, 3 , 'OPEN'), (4, 4, 4, 'BOX', 40, 4 , 'OPEN');

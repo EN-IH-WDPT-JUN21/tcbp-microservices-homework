@@ -1,0 +1,1 @@
+INSERT INTO sales_rep (id, name) VALUES (1, 'Nathan'),(2, 'Vivi'),(3, 'Joao'),(4, 'Katazyna');

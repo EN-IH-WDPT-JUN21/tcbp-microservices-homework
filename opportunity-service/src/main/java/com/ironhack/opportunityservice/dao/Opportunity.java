@@ -20,16 +20,23 @@ public class Opportunity {
     @SequenceGenerator(name="opportunity_generator", sequenceName = "opportunity_seq")
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     private Product product;
     private int quantity;
 
     private Long decisionMaker;
+    @Enumerated(EnumType.STRING)
     private Status status;
 
-    public Opportunity(Product product, int quantity, Long decisionMaker, Status status) {
+    private Long account;
+    private Long salesId;
+
+    public Opportunity(Product product, int quantity, Long decisionMaker, Status status, Long account, Long salesId) {
         this.product = product;
         this.quantity = quantity;
         this.decisionMaker = decisionMaker;
         this.status = status;
+        this.account = account;
+        this.salesId = salesId;
     }
 }

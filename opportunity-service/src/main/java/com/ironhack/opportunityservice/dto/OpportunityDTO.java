@@ -22,6 +22,7 @@ public class OpportunityDTO {
 
     @NotNull
     private Long decisionMaker;
-
     private String status;
+    private Long account;
+    private Long salesId;
 }
