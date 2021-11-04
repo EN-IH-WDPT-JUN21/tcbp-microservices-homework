@@ -16,8 +16,7 @@ import javax.persistence.*;
 public class LeadObject {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lead_generator")
-    @SequenceGenerator(name="lead_generator", sequenceName = "lead_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
     private String contactName;

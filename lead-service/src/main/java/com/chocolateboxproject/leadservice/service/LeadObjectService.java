@@ -63,7 +63,7 @@ public class LeadObjectService implements ILeadObjectService {
         leadObject.setEmail(leadObjectDTO.getEmail());
         if(Objects.equals(leadObjectDTO.getCompanyName().trim(), "")) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No Company Name Present");
         leadObject.setCompanyName(leadObjectDTO.getCompanyName());
-        leadObject.setSalesId(salesRepServiceProxy.findById(leadObjectDTO.getSalesRep()).getId()); // This will validate if sales rep exists
+        leadObject.setSalesId(leadObjectDTO.getSalesRep());
         return leadObjectRepository.save(leadObject);
     }
 
