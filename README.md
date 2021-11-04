@@ -1,58 +1,50 @@
-# tcbp-microservices-homework
+# The Chocolate Box Project - Microservices Homework
 
 
-## application.properties suggestion:
 
-<strong> ** IMPORTANT - H2 Database Application needs to be run to Allow Databases to work accross microservices ** </strong>
-
-The database will be shared by all microservices, each one will be responsible for one table. The name of the database is `CRMDatabase`.
-Username is `sa` and no password. This I think is the standard for H2 databases.
+<strong><em> ** IMPORTANT - H2 Database Application needs to be run to Allow Databases to work accross microservices ** </em> </strong>
 
 
-    spring.application.name=<name of the service here>
-    server.port=<port number>
-    spring.datasource.url=jdbc:h2:tcp://localhost:9090/mem:CRMDatabase
-    spring.datasource.driver-class-name=org.h2.Driver
-    spring.h2.console.enabled=true
-    spring.datasource.username=sa
-    spring.datasource.password=
-    spring.jpa.show-sql=true
+## How it works... 
+
+<h4>
+All our services have swagger installed - This is the simpliest way to find and test all routes.
+</h4>
+
+<ul>
+<li> Run the H2 Database Application First (VERY IMPORTANT) </li>
+<li> Load the relevant service(s) by running the ServiceApplication(s)</li>
+<li> Head over to the corresponding swagger ui (see below) </li>
+<li> Click on service-name-controller (e.g. lead-object-controller) to reveal the routes</li>
+<li> Click on the route you would like to test </li>
+<li> Click on "Try it Out" on the right hand side</li>
+<li> If Necessary edit the JSON then hit "Execute" </li>
+<li> You'll see the response body appear underneath :)  </li>
+
+</ul>
 
 
 ## salesrep-service
-port: 8100
 
-GET: /salesrep
+<a href="http://localhost:8001/swagger-ui/"> http://localhost:8001/swagger-ui/ </a>
 
-POST: /salesrep
+## Lead-Object-service
 
-- "name": String
+<a href="http://localhost:8002/swagger-ui/"> http://localhost:8002/swagger-ui/ </a>
 
-## contact-service
-port: 8003
+## Contact-service
 
-GET:
-- /api/contact  
-- /api/contact/{id}
+<a href="http://localhost:8003/swagger-ui/"> http://localhost:8003/swagger-ui/ </a>
 
-POST: /api/contact
+## Opportunity-service
 
-- "contactName": String
-- "phoneNumber": *Phone number that must be 6-15 digits and that can include the country code*
-- "email": String *(must have the correct format of an e-mail address)*
-- "companyName": String
+<a href="http://localhost:8004/swagger-ui/"> http://localhost:8004/swagger-ui/ </a>
 
-## opportunity-service
-port: 8004
+## Account-service
 
-GET:
-- /api/opportunity
-- /api/opportunity/{id}
+<a href="http://localhost:8005/swagger-ui/"> http://localhost:8005/swagger-ui/ </a>
 
-POST: /api/opportunity
 
-- "product": String *(can only be "box", "hybrid" or "flatbed" - case-insensitive)*
-- "quantity": int
-- "decisionMaker": *id of an existing contact*
-  
+
+
   
