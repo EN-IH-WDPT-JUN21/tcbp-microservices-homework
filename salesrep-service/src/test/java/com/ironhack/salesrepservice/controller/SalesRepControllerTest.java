@@ -3,6 +3,7 @@ package com.ironhack.salesrepservice.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ironhack.salesrepservice.dao.SalesRep;
 import com.ironhack.salesrepservice.repository.SalesRepRepository;
+import com.ironhack.salesrepservice.service.SalesRepService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -29,6 +31,9 @@ class SalesRepControllerTest {
 
     @Autowired
     private SalesRepRepository salesRepRepository;
+
+    @Autowired
+    private SalesRepService salesRepService;
 
     private MockMvc mockMvc;
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -62,6 +67,11 @@ class SalesRepControllerTest {
         long id = salesRep.getId();
         MvcResult result = mockMvc.perform(get("/api/salesrep/" + id)).andExpect(status().isOk()).andReturn();
         assertTrue(result.getResponse().getContentAsString().contains("Jane"));
+    }
+
+    @Test
+    void getSalesRepById_NegativeTest() {
+        assertThrows(ResponseStatusException.class, () -> salesRepService.getSalesRepById(500L));
     }
 
     @Test
