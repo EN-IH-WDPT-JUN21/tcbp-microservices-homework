@@ -30,5 +30,11 @@ public class LeadObjectDTO {
 
     private Long salesRep;
 
-
+    public LeadObjectDTO(String contactName, String phoneNumber, String email, String companyName, Long salesRep) {
+        this.contactName = contactName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.companyName = companyName;
+        this.salesRep = salesRep;
+    }
 }
