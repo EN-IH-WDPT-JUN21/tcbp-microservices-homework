@@ -16,8 +16,7 @@ import javax.persistence.*;
 @Entity
 public class Opportunity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "opportunity_generator")
-    @SequenceGenerator(name="opportunity_generator", sequenceName = "opportunity_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Enumerated(EnumType.STRING)
